@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>headfirst.designpatterns.decorator.starbuzz.CondimentDecorator</OriginalElement>
+  <nodes>
+    <node x="361.12499999999994" y="-14.0">headfirst.designpatterns.decorator.starbuzz.Beverage</node>
+    <node x="-106.0" y="286.0">headfirst.designpatterns.decorator.starbuzz.Mocha</node>
+    <node x="313.99999999999994" y="286.0">headfirst.designpatterns.decorator.starbuzz.Milk</node>
+    <node x="197.49999999999994" y="148.0">headfirst.designpatterns.decorator.starbuzz.CondimentDecorator</node>
+    <node x="524.0" y="286.0">headfirst.designpatterns.decorator.starbuzz.Soy</node>
+    <node x="103.99999999999994" y="286.0">headfirst.designpatterns.decorator.starbuzz.Whip</node>
+    <node x="430.5" y="160.5">headfirst.designpatterns.decorator.starbuzz.HouseBlend</node>
+    <node x="595.5" y="160.5">headfirst.designpatterns.decorator.starbuzz.Espresso</node>
+    <node x="899.5" y="160.5">headfirst.designpatterns.decorator.starbuzz.Decaf</node>
+    <node x="747.5" y="160.5">headfirst.designpatterns.decorator.starbuzz.DarkRoast</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="headfirst.designpatterns.decorator.starbuzz.Espresso" target="headfirst.designpatterns.decorator.starbuzz.Beverage" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="661.5" y="118.0" />
+      <point x="503.625" y="118.0" />
+      <point x="47.5" y="56.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.decorator.starbuzz.HouseBlend" target="headfirst.designpatterns.decorator.starbuzz.Beverage" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="503.0" y="128.0" />
+      <point x="661.5" y="128.0" />
+      <point x="661.5" y="118.0" />
+      <point x="503.625" y="118.0" />
+      <point x="47.5" y="56.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.decorator.starbuzz.Milk" target="headfirst.designpatterns.decorator.starbuzz.CondimentDecorator" relationship="GENERALIZATION">
+      <point x="0.0" y="-43.5" />
+      <point x="409.0" y="261.0" />
+      <point x="303.99999999999994" y="261.0" />
+      <point x="0.0" y="44.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.decorator.starbuzz.Soy" target="headfirst.designpatterns.decorator.starbuzz.CondimentDecorator" relationship="GENERALIZATION">
+      <point x="0.0" y="-43.5" />
+      <point x="619.0" y="261.0" />
+      <point x="303.99999999999994" y="261.0" />
+      <point x="0.0" y="44.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.decorator.starbuzz.DarkRoast" target="headfirst.designpatterns.decorator.starbuzz.Beverage" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="813.5" y="128.0" />
+      <point x="661.5" y="128.0" />
+      <point x="661.5" y="118.0" />
+      <point x="503.625" y="118.0" />
+      <point x="47.5" y="56.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.decorator.starbuzz.Mocha" target="headfirst.designpatterns.decorator.starbuzz.CondimentDecorator" relationship="GENERALIZATION">
+      <point x="0.0" y="-43.5" />
+      <point x="-11.0" y="261.0" />
+      <point x="303.99999999999994" y="261.0" />
+      <point x="0.0" y="44.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.decorator.starbuzz.Decaf" target="headfirst.designpatterns.decorator.starbuzz.Beverage" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="965.5" y="128.0" />
+      <point x="661.5" y="128.0" />
+      <point x="661.5" y="118.0" />
+      <point x="503.625" y="118.0" />
+      <point x="47.5" y="56.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.decorator.starbuzz.CondimentDecorator" target="headfirst.designpatterns.decorator.starbuzz.Beverage" relationship="TO_ONE">
+      <point x="-53.25" y="-44.0" />
+      <point x="250.74999999999994" y="118.0" />
+      <point x="408.625" y="118.0" />
+      <point x="-47.5" y="56.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.decorator.starbuzz.Whip" target="headfirst.designpatterns.decorator.starbuzz.CondimentDecorator" relationship="GENERALIZATION">
+      <point x="0.0" y="-43.5" />
+      <point x="198.99999999999994" y="261.0" />
+      <point x="303.99999999999994" y="261.0" />
+      <point x="0.0" y="44.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.decorator.starbuzz.CondimentDecorator" target="headfirst.designpatterns.decorator.starbuzz.Beverage" relationship="GENERALIZATION">
+      <point x="53.25" y="-44.0" />
+      <point x="357.24999999999994" y="128.0" />
+      <point x="661.5" y="128.0" />
+      <point x="661.5" y="118.0" />
+      <point x="503.625" y="118.0" />
+      <point x="47.5" y="56.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.032890132960112" showDependencies="true" x="608.5" y="216.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

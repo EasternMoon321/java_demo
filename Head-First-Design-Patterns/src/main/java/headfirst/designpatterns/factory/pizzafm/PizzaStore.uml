@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>headfirst.designpatterns.factory.pizzafm.PizzaStore</OriginalElement>
+  <nodes>
+    <node x="64.0" y="207.5">headfirst.designpatterns.factory.pizzafm.NYStyleCheesePizza</node>
+    <node x="220.55219780219778" y="25.0">headfirst.designpatterns.factory.pizzafm.NYPizzaStore</node>
+    <node x="861.0" y="190.0">headfirst.designpatterns.factory.pizzafm.ChicagoStyleClamPizza</node>
+    <node x="738.75" y="-140.0">headfirst.designpatterns.factory.pizzafm.Pizza</node>
+    <node x="295.0" y="190.0">headfirst.designpatterns.factory.pizzafm.ChicagoStylePepperoniPizza</node>
+    <node x="108.55219780219778" y="-112.0">headfirst.designpatterns.factory.pizzafm.PizzaStore</node>
+    <node x="1327.0" y="207.5">headfirst.designpatterns.factory.pizzafm.NYStylePepperoniPizza</node>
+    <node x="1115.0" y="207.5">headfirst.designpatterns.factory.pizzafm.NYStyleClamPizza</node>
+    <node x="588.0" y="190.0">headfirst.designpatterns.factory.pizzafm.ChicagoStyleCheesePizza</node>
+    <node x="1578.0" y="207.5">headfirst.designpatterns.factory.pizzafm.NYStyleVeggiePizza</node>
+    <node x="-205.0" y="190.0">headfirst.designpatterns.factory.pizzafm.ChicagoStyleVeggiePizza</node>
+    <node x="-3.4478021978022184" y="25.0">headfirst.designpatterns.factory.pizzafm.ChicagoPizzaStore</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="headfirst.designpatterns.factory.pizzafm.NYStyleCheesePizza" target="headfirst.designpatterns.factory.pizzafm.Pizza" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="169.5" y="165.0" />
+      <point x="846.25" y="165.0" />
+      <point x="0.0" y="140.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.factory.pizzafm.ChicagoPizzaStore" target="headfirst.designpatterns.factory.pizzafm.PizzaStore" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="98.55219780219778" y="0.0" />
+      <point x="210.55219780219778" y="0.0" />
+      <point x="0.0" y="43.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.factory.pizzafm.NYStyleVeggiePizza" target="headfirst.designpatterns.factory.pizzafm.Pizza" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="1681.5" y="165.0" />
+      <point x="846.25" y="165.0" />
+      <point x="0.0" y="140.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.factory.pizzafm.NYStyleClamPizza" target="headfirst.designpatterns.factory.pizzafm.Pizza" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="1211.0" y="165.0" />
+      <point x="846.25" y="165.0" />
+      <point x="0.0" y="140.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.factory.pizzafm.ChicagoStylePepperoniPizza" target="headfirst.designpatterns.factory.pizzafm.Pizza" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="431.5" y="165.0" />
+      <point x="846.25" y="165.0" />
+      <point x="0.0" y="140.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.factory.pizzafm.NYPizzaStore" target="headfirst.designpatterns.factory.pizzafm.PizzaStore" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="322.5521978021978" y="0.0" />
+      <point x="210.55219780219778" y="0.0" />
+      <point x="0.0" y="43.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.factory.pizzafm.ChicagoStyleClamPizza" target="headfirst.designpatterns.factory.pizzafm.Pizza" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="978.0" y="165.0" />
+      <point x="846.25" y="165.0" />
+      <point x="0.0" y="140.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.factory.pizzafm.ChicagoStyleCheesePizza" target="headfirst.designpatterns.factory.pizzafm.Pizza" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="714.5" y="165.0" />
+      <point x="846.25" y="165.0" />
+      <point x="0.0" y="140.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.factory.pizzafm.NYStylePepperoniPizza" target="headfirst.designpatterns.factory.pizzafm.Pizza" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="1442.5" y="165.0" />
+      <point x="846.25" y="165.0" />
+      <point x="0.0" y="140.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.factory.pizzafm.ChicagoStyleVeggiePizza" target="headfirst.designpatterns.factory.pizzafm.Pizza" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="-80.5" y="165.0" />
+      <point x="846.25" y="165.0" />
+      <point x="0.0" y="140.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.7243781094527363" showDependencies="true" x="48.31868131868134" y="76.12843406593407" />
+  <SelectedNodes>
+    <node>headfirst.designpatterns.factory.pizzafm.PizzaStore</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

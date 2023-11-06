@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>headfirst.designpatterns.strategy.Duck</OriginalElement>
+  <nodes>
+    <node x="1094.0" y="183.5">headfirst.designpatterns.strategy.Quack</node>
+    <node x="212.5" y="381.0">headfirst.designpatterns.strategy.MallardDuck</node>
+    <node x="380.5" y="381.0">headfirst.designpatterns.strategy.DecoyDuck</node>
+    <node x="474.0" y="99.0">headfirst.designpatterns.strategy.Duck</node>
+    <node x="889.5" y="381.0">headfirst.designpatterns.strategy.ModelDuck</node>
+    <node x="325.75" y="-14.0">headfirst.designpatterns.strategy.FlyBehavior</node>
+    <node x="722.5" y="381.0">headfirst.designpatterns.strategy.RubberDuck</node>
+    <node x="1241.0" y="183.5">headfirst.designpatterns.strategy.MuteQuack</node>
+    <node x="947.0" y="183.5">headfirst.designpatterns.strategy.Squeak</node>
+    <node x="789.0" y="183.5">headfirst.designpatterns.strategy.FakeQuack</node>
+    <node x="107.0" y="183.5">headfirst.designpatterns.strategy.FlyNoWay</node>
+    <node x="257.0" y="183.5">headfirst.designpatterns.strategy.FlyRocketPowered</node>
+    <node x="805.0" y="-14.0">headfirst.designpatterns.strategy.QuackBehavior</node>
+    <node x="540.5" y="381.0">headfirst.designpatterns.strategy.RedHeadDuck</node>
+    <node x="-70.0" y="183.5">headfirst.designpatterns.strategy.FlyWithWings</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="headfirst.designpatterns.strategy.FlyWithWings" target="headfirst.designpatterns.strategy.FlyBehavior" relationship="REALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="8.5" y="79.0" />
+      <point x="172.0" y="79.0" />
+      <point x="172.0" y="69.0" />
+      <point x="361.25" y="69.0" />
+      <point x="-35.5" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.strategy.FlyNoWay" target="headfirst.designpatterns.strategy.FlyBehavior" relationship="REALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="172.0" y="69.0" />
+      <point x="361.25" y="69.0" />
+      <point x="-35.5" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.strategy.DecoyDuck" target="headfirst.designpatterns.strategy.Duck" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="450.5" y="356.0" />
+      <point x="621.5" y="356.0" />
+      <point x="0.0" y="116.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.strategy.MuteQuack" target="headfirst.designpatterns.strategy.QuackBehavior" relationship="REALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="1311.5" y="79.0" />
+      <point x="1084.0" y="79.0" />
+      <point x="1084.0" y="69.0" />
+      <point x="931.75" y="69.0" />
+      <point x="42.25" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.strategy.Quack" target="headfirst.designpatterns.strategy.QuackBehavior" relationship="REALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="1157.5" y="79.0" />
+      <point x="1084.0" y="79.0" />
+      <point x="1084.0" y="69.0" />
+      <point x="931.75" y="69.0" />
+      <point x="42.25" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.strategy.Squeak" target="headfirst.designpatterns.strategy.QuackBehavior" relationship="REALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="1010.5" y="79.0" />
+      <point x="1084.0" y="79.0" />
+      <point x="1084.0" y="69.0" />
+      <point x="931.75" y="69.0" />
+      <point x="42.25" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.strategy.Duck" target="headfirst.designpatterns.strategy.FlyBehavior" relationship="TO_ONE">
+      <point x="0.0" y="-116.0" />
+      <point x="621.5" y="79.0" />
+      <point x="432.25" y="79.0" />
+      <point x="35.5" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.strategy.ModelDuck" target="headfirst.designpatterns.strategy.Duck" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="959.0" y="356.0" />
+      <point x="621.5" y="356.0" />
+      <point x="0.0" y="116.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.strategy.MallardDuck" target="headfirst.designpatterns.strategy.Duck" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="286.5" y="356.0" />
+      <point x="621.5" y="356.0" />
+      <point x="0.0" y="116.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.strategy.Duck" target="headfirst.designpatterns.strategy.QuackBehavior" relationship="TO_ONE">
+      <point x="0.0" y="-116.0" />
+      <point x="621.5" y="79.0" />
+      <point x="847.25" y="79.0" />
+      <point x="-42.25" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.strategy.FakeQuack" target="headfirst.designpatterns.strategy.QuackBehavior" relationship="REALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="858.0" y="79.0" />
+      <point x="1084.0" y="79.0" />
+      <point x="1084.0" y="69.0" />
+      <point x="931.75" y="69.0" />
+      <point x="42.25" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.strategy.RedHeadDuck" target="headfirst.designpatterns.strategy.Duck" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="0.0" y="116.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.strategy.RubberDuck" target="headfirst.designpatterns.strategy.Duck" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="796.0" y="356.0" />
+      <point x="621.5" y="356.0" />
+      <point x="0.0" y="116.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.strategy.FlyRocketPowered" target="headfirst.designpatterns.strategy.FlyBehavior" relationship="REALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="355.5" y="79.0" />
+      <point x="172.0" y="79.0" />
+      <point x="172.0" y="69.0" />
+      <point x="361.25" y="69.0" />
+      <point x="-35.5" y="31.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.1335968379446641" showDependencies="true" x="377.40585774058576" y="244.9801255230126" />
+  <SelectedNodes>
+    <node>headfirst.designpatterns.strategy.Duck</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

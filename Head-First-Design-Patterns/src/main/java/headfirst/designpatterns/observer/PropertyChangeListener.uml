@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>java.beans.PropertyChangeListener</OriginalElement>
+  <nodes>
+    <node x="-259.0" y="57.0">java.beans.PropertyEditor</node>
+    <node x="-605.0" y="189.0">java.beans.PropertyChangeListener</node>
+    <node x="-520.0" y="-21.0">java.util.EventListener</node>
+    <node x="-459.5" y="434.0">java.beans.PropertyEditorSupport</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.beans.PropertyEditorSupport" target="java.beans.PropertyChangeListener" relationship="TO_MANY">
+      <point x="-200.5" y="-248.0" />
+      <point x="0.0" y="31.5" />
+    </edge>
+    <edge source="java.beans.PropertyChangeListener" target="java.util.EventListener" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="java.beans.PropertyEditorSupport" target="java.beans.PropertyEditor" relationship="REALIZATION">
+      <point x="200.5" y="-248.0" />
+      <point x="0.0" y="163.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.8" showDependencies="true" x="84.5" y="49.875" />
+  <SelectedNodes>
+    <node>java.util.EventListener</node>
+    <node>java.beans.PropertyEditor</node>
+    <node>java.beans.PropertyChangeListener</node>
+    <node>java.beans.PropertyEditorSupport</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

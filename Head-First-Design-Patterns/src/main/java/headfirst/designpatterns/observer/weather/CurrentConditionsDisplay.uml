@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>headfirst.designpatterns.observer.weather.CurrentConditionsDisplay</OriginalElement>
+  <nodes>
+    <node x="166.20714285714286" y="10.0">headfirst.designpatterns.observer.weather.Observer</node>
+    <node x="323.0" y="603.0">headfirst.designpatterns.observer.weather.HeatIndexDisplay</node>
+    <node x="558.8571428571429" y="149.0">headfirst.designpatterns.observer.weather.WeatherData</node>
+    <node x="586.8571428571429" y="-14.0">headfirst.designpatterns.observer.weather.Subject</node>
+    <node x="64.70714285714286" y="281.5">headfirst.designpatterns.observer.weather.DisplayElement</node>
+    <node x="613.0" y="603.0">headfirst.designpatterns.observer.weather.ForecastDisplay</node>
+    <node x="-196.0" y="579.0">headfirst.designpatterns.observer.weather.StatisticsDisplay</node>
+    <node x="54.00000000000003" y="603.0">headfirst.designpatterns.observer.weather.CurrentConditionsDisplay</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="headfirst.designpatterns.observer.weather.ForecastDisplay" target="headfirst.designpatterns.observer.weather.WeatherData" relationship="TO_ONE">
+      <point x="57.5" y="-80.0" />
+      <point x="785.5" y="538.0" />
+      <point x="707.3571428571429" y="538.0" />
+      <point x="0.0" y="164.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.observer.weather.StatisticsDisplay" target="headfirst.designpatterns.observer.weather.DisplayElement" relationship="REALIZATION">
+      <point x="-57.5" y="-104.0" />
+      <point x="-138.5" y="558.0" />
+      <point x="-187.0" y="558.0" />
+      <point x="-187.0" y="518.0" />
+      <point x="150.20714285714286" y="518.0" />
+      <point x="0.0" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.observer.weather.ForecastDisplay" target="headfirst.designpatterns.observer.weather.Observer" relationship="REALIZATION">
+      <point x="-57.5" y="-80.0" />
+      <point x="670.5" y="548.0" />
+      <point x="343.2071428571428" y="548.0" />
+      <point x="343.2071428571428" y="128.0" />
+      <point x="36.22500000000002" y="128.0" />
+      <point x="36.22500000000002" y="118.0" />
+      <point x="223.70714285714286" y="118.0" />
+      <point x="-57.5" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.observer.weather.CurrentConditionsDisplay" target="headfirst.designpatterns.observer.weather.Observer" relationship="REALIZATION">
+      <point x="-62.25" y="-80.0" />
+      <point x="116.25" y="558.0" />
+      <point x="-11.625" y="558.0" />
+      <point x="-11.625" y="508.0" />
+      <point x="-34.917857142857144" y="508.0" />
+      <point x="-34.917857142857144" y="128.0" />
+      <point x="36.22500000000002" y="128.0" />
+      <point x="36.22500000000002" y="118.0" />
+      <point x="223.70714285714286" y="118.0" />
+      <point x="-57.5" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.observer.weather.CurrentConditionsDisplay" target="headfirst.designpatterns.observer.weather.WeatherData" relationship="TO_ONE">
+      <point x="62.25" y="-80.0" />
+      <point x="240.75000000000006" y="538.0" />
+      <point x="707.3571428571429" y="538.0" />
+      <point x="0.0" y="164.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.observer.weather.HeatIndexDisplay" target="headfirst.designpatterns.observer.weather.DisplayElement" relationship="REALIZATION">
+      <point x="-67.5" y="-80.0" />
+      <point x="390.5" y="558.0" />
+      <point x="198.20714285714286" y="558.0" />
+      <point x="198.20714285714286" y="508.0" />
+      <point x="150.20714285714286" y="508.0" />
+      <point x="0.0" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.observer.weather.ForecastDisplay" target="headfirst.designpatterns.observer.weather.DisplayElement" relationship="REALIZATION">
+      <point x="-57.5" y="-80.0" />
+      <point x="670.5" y="548.0" />
+      <point x="343.2071428571428" y="548.0" />
+      <point x="343.2071428571428" y="498.0" />
+      <point x="150.20714285714286" y="498.0" />
+      <point x="0.0" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.observer.weather.StatisticsDisplay" target="headfirst.designpatterns.observer.weather.WeatherData" relationship="TO_ONE">
+      <point x="57.5" y="-104.0" />
+      <point x="-23.5" y="538.0" />
+      <point x="707.3571428571429" y="538.0" />
+      <point x="0.0" y="164.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.observer.weather.WeatherData" target="headfirst.designpatterns.observer.weather.Observer" relationship="TO_MANY">
+      <point x="-74.25" y="-164.0" />
+      <point x="633.1071428571429" y="118.0" />
+      <point x="338.7071428571428" y="118.0" />
+      <point x="57.5" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.observer.weather.StatisticsDisplay" target="headfirst.designpatterns.observer.weather.Observer" relationship="REALIZATION">
+      <point x="-57.5" y="-104.0" />
+      <point x="-138.5" y="558.0" />
+      <point x="-187.0" y="558.0" />
+      <point x="-187.0" y="128.0" />
+      <point x="36.22500000000002" y="128.0" />
+      <point x="36.22500000000002" y="118.0" />
+      <point x="223.70714285714286" y="118.0" />
+      <point x="-57.5" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.observer.weather.HeatIndexDisplay" target="headfirst.designpatterns.observer.weather.Observer" relationship="REALIZATION">
+      <point x="-67.5" y="-80.0" />
+      <point x="390.5" y="558.0" />
+      <point x="198.20714285714286" y="558.0" />
+      <point x="198.20714285714286" y="528.0" />
+      <point x="246.20714285714286" y="528.0" />
+      <point x="246.20714285714286" y="128.0" />
+      <point x="36.22500000000002" y="128.0" />
+      <point x="36.22500000000002" y="118.0" />
+      <point x="223.70714285714286" y="118.0" />
+      <point x="-57.5" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.observer.weather.WeatherData" target="headfirst.designpatterns.observer.weather.Subject" relationship="REALIZATION">
+      <point x="74.25" y="-164.0" />
+      <point x="781.6071428571429" y="128.0" />
+      <point x="712.3571428571429" y="128.0" />
+      <point x="0.0" y="55.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.observer.weather.HeatIndexDisplay" target="headfirst.designpatterns.observer.weather.WeatherData" relationship="TO_ONE">
+      <point x="67.5" y="-80.0" />
+      <point x="525.5" y="538.0" />
+      <point x="707.3571428571429" y="538.0" />
+      <point x="0.0" y="164.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.observer.weather.CurrentConditionsDisplay" target="headfirst.designpatterns.observer.weather.DisplayElement" relationship="REALIZATION">
+      <point x="-62.25" y="-80.0" />
+      <point x="116.25" y="558.0" />
+      <point x="-11.625" y="558.0" />
+      <point x="-11.625" y="528.0" />
+      <point x="150.20714285714286" y="528.0" />
+      <point x="0.0" y="31.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.9339393939393942" showDependencies="true" x="459.0525632706032" y="426.3153796236209" />
+  <SelectedNodes>
+    <node>headfirst.designpatterns.observer.weather.DisplayElement</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

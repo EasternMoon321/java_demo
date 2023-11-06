@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>headfirst.designpatterns.factory.pizzas.SimplePizzaFactory</OriginalElement>
+  <nodes>
+    <node x="-120.5" y="311.0">headfirst.designpatterns.factory.pizzas.PepperoniPizza</node>
+    <node x="301.83333333333303" y="32.333333333333485">headfirst.designpatterns.factory.pizzas.SimplePizzaFactory</node>
+    <node x="-24.5" y="-19.0">headfirst.designpatterns.factory.pizzas.Pizza</node>
+    <node x="255.5" y="316.0">headfirst.designpatterns.factory.pizzas.ClamPizza</node>
+    <node x="85.5" y="316.0">headfirst.designpatterns.factory.pizzas.CheesePizza</node>
+    <node x="-285.5" y="316.0">headfirst.designpatterns.factory.pizzas.VeggiePizza</node>
+    <node x="295.33333333333303" y="145.33333333333348">headfirst.designpatterns.factory.pizzas.PizzaStore</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="headfirst.designpatterns.factory.pizzas.VeggiePizza" target="headfirst.designpatterns.factory.pizzas.Pizza" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="-213.0" y="286.0" />
+      <point x="66.5" y="286.0" />
+      <point x="0.0" y="140.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.factory.pizzas.CheesePizza" target="headfirst.designpatterns.factory.pizzas.Pizza" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="160.5" y="286.0" />
+      <point x="66.5" y="286.0" />
+      <point x="0.0" y="140.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.factory.pizzas.PepperoniPizza" target="headfirst.designpatterns.factory.pizzas.Pizza" relationship="GENERALIZATION">
+      <point x="0.0" y="-19.0" />
+      <point x="-27.5" y="286.0" />
+      <point x="66.5" y="286.0" />
+      <point x="0.0" y="140.0" />
+    </edge>
+    <edge source="headfirst.designpatterns.factory.pizzas.PizzaStore" target="headfirst.designpatterns.factory.pizzas.SimplePizzaFactory" relationship="TO_ONE">
+      <point x="0.0" y="-44.0" />
+      <point x="0.0" y="31.5" />
+    </edge>
+    <edge source="headfirst.designpatterns.factory.pizzas.ClamPizza" target="headfirst.designpatterns.factory.pizzas.Pizza" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="320.5" y="286.0" />
+      <point x="66.5" y="286.0" />
+      <point x="0.0" y="140.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.2000000000000004" showDependencies="true" x="153.56666666666632" y="189.33333333333331" />
+  <SelectedNodes>
+    <node>headfirst.designpatterns.factory.pizzas.SimplePizzaFactory</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
