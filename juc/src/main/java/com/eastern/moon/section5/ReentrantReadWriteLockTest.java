@@ -1,49 +1,45 @@
 package com.eastern.moon.section5;
 
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * @author moon
  */
 public class ReentrantReadWriteLockTest {
+    static ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
+    static Lock wl = reentrantReadWriteLock.writeLock();
+    static Lock rl = reentrantReadWriteLock.readLock();
     public static void main(String[] args) {
-        ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                reentrantReadWriteLock.readLock().lock();
-                try {
-                    System.out.println(Thread.currentThread().getName() + " start");
-                    TimeUnit.SECONDS.sleep(10);
-                    System.out.println(Thread.currentThread().getName() + " end");
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                } finally {
-                    reentrantReadWriteLock.readLock().unlock();
-                }
-            }
-        }, "thread1").start();
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                reentrantReadWriteLock.readLock().lock();
+                rl.lock();
                 try {
                     System.out.println(Thread.currentThread().getName() + " start");
+                    /*rl.lock();
+                    try {
+                        TimeUnit.SECONDS.sleep(10);
+                        System.out.println(Thread.currentThread().getName() + " end");
+                    } finally {
+                        rl.unlock();
+                    }*/
                     TimeUnit.SECONDS.sleep(10);
                     System.out.println(Thread.currentThread().getName() + " end");
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 } finally {
-                    reentrantReadWriteLock.readLock().unlock();
+                    rl.unlock();
                 }
             }
-        }, "thread3").start();
+        }, "rl_thread1").start();
+
         new Thread(new Runnable() {
             @Override
             public void run() {
-                reentrantReadWriteLock.writeLock().lock();
+                rl.lock();
                 try {
                     System.out.println(Thread.currentThread().getName() + " start");
                     TimeUnit.SECONDS.sleep(10);
@@ -51,9 +47,41 @@ public class ReentrantReadWriteLockTest {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 } finally {
-                    reentrantReadWriteLock.writeLock().unlock();
+                    rl.unlock();
                 }
             }
-        }, "thread2").start();
+        }, "rl_thread3").start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                rl.lock();
+                try {
+                    System.out.println(Thread.currentThread().getName() + " start");
+                    TimeUnit.SECONDS.sleep(10);
+                    System.out.println(Thread.currentThread().getName() + " end");
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                } finally {
+                    rl.unlock();
+                }
+            }
+        }, "rl_thread4").start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                wl.lock();
+                try {
+                    System.out.println(Thread.currentThread().getName() + " start");
+                    TimeUnit.SECONDS.sleep(10);
+                    System.out.println(Thread.currentThread().getName() + " end");
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                } finally {
+                    wl.unlock();
+                }
+            }
+        }, "w_thread2").start();
     }
 }
