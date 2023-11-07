@@ -870,8 +870,6 @@ static final class NonfairSync extends Sync {
 }
 ```
 
-##### 
-
 ```java
 
 /**
@@ -890,6 +888,283 @@ final boolean apparentlyFirstQueuedIsExclusive() {
         (s = h.next)  != null &&
         !s.isShared()         &&
         s.thread != null;
+}
+```
+
+## Condition
+
+#### await
+
+- 调用该方法时，前提是该线程获取了锁（同步状态）
+
+```java
+/**
+ * Implements interruptible condition wait.
+ * <ol>
+ * <li> If current thread is interrupted, throw InterruptedException.
+ * <li> Save lock state returned by {@link #getState}.
+ * <li> Invoke {@link #release} with saved state as argument,
+ *      throwing IllegalMonitorStateException if it fails.
+ * <li> Block until signalled or interrupted.
+ * <li> Reacquire by invoking specialized version of
+ *      {@link #acquire} with saved state as argument.
+ * <li> If interrupted while blocked in step 4, throw InterruptedException.
+ * </ol>
+ */
+public final void await() throws InterruptedException {
+    if (Thread.interrupted())
+        throw new InterruptedException();
+  	// 创建当前线程的CONDITION节点，并添加至等待队列，node指向创建的节点
+    Node node = addConditionWaiter();
+  	// （该线程已获取锁）释放同步状态，返回释放前的值
+    int savedState = fullyRelease(node);
+    int interruptMode = 0;
+  	// 是否位于同步队列
+    while (!isOnSyncQueue(node)) {
+      	// 阻塞当前线程
+        LockSupport.park(this);
+        if ((interruptMode = checkInterruptWhileWaiting(node)) != 0)
+            break;
+    }
+  	// 自旋cas获取同步状态
+    if (acquireQueued(node, savedState) && interruptMode != THROW_IE)
+        interruptMode = REINTERRUPT;
+    if (node.nextWaiter != null) // clean up if cancelled
+        unlinkCancelledWaiters();
+    if (interruptMode != 0)
+        reportInterruptAfterWait(interruptMode);
+}
+```
+
+添加至等待队列
+
+```java
+/**
+ * Adds a new waiter to wait queue.
+ * @return its new wait node
+ */
+private Node addConditionWaiter() {
+  	// 获取当前等待队列 最后节点
+    Node t = lastWaiter;
+    // If lastWaiter is cancelled, clean out.
+  	// 清理队列中取消的节点（最后一个节点非CONDITION时，开始清理整个等待队列）
+    if (t != null && t.waitStatus != Node.CONDITION) {
+        unlinkCancelledWaiters();
+      	// 获取最新的尾节点
+        t = lastWaiter;
+    }
+  	// 创建当前线程的CONDITION（等待状态）节点
+    Node node = new Node(Thread.currentThread(), Node.CONDITION);
+  	// 链接尾节点
+    if (t == null)
+        firstWaiter = node;
+    else
+        t.nextWaiter = node;
+    lastWaiter = node;
+    return node;
+}
+```
+
+从等待队列中删除取消的等待节点（等待状态非condition）
+
+```java
+/**
+ * Unlinks cancelled waiter nodes from condition queue.
+ * Called only while holding lock. This is called when
+ * cancellation occurred during condition wait, and upon
+ * insertion of a new waiter when lastWaiter is seen to have
+ * been cancelled. This method is needed to avoid garbage
+ * retention in the absence of signals. So even though it may
+ * require a full traversal, it comes into play only when
+ * timeouts or cancellations occur in the absence of
+ * signals. It traverses all nodes rather than stopping at a
+ * particular target to unlink all pointers to garbage nodes
+ * without requiring many re-traversals during cancellation
+ * storms.
+ */
+private void unlinkCancelledWaiters() {
+  	// 当前节点（头节点）
+    Node t = firstWaiter;
+  	// 当前节点的上个节点
+    Node trail = null;
+  	// 遍历整个等待队列
+    while (t != null) {
+      	// 下个节点
+        Node next = t.nextWaiter;
+      	// t节点等待状态非CONDITIN（需移除）
+        if (t.waitStatus != Node.CONDITION) {
+            t.nextWaiter = null;
+            if (trail == null)
+                firstWaiter = next;
+            else
+                trail.nextWaiter = next;
+          	// 重新链接尾节点
+            if (next == null)
+                lastWaiter = trail;
+        }
+        else
+            trail = t;
+        t = next;
+    }
+
+}
+```
+
+释放同步状态
+
+```java
+/**
+ * Invokes release with current state value; returns saved state.
+ * Cancels node and throws exception on failure.
+ * @param node the condition node for this wait
+ * @return previous sync state
+ */
+final int fullyRelease(Node node) {
+    boolean failed = true;
+    try {
+      	// 获取同步状态
+        int savedState = getState();
+      	// 释放锁 （并唤醒后继节点）
+        if (release(savedState)) {
+            failed = false;
+            return savedState;
+        } else {
+            throw new IllegalMonitorStateException();
+        }
+    } finally {
+      	// 释放失败，将当前节点置为移除状态
+        if (failed)
+            node.waitStatus = Node.CANCELLED;
+    }
+}
+```
+
+节点node是否在同步队列中
+
+```java
+/**
+ * Returns true if a node, always one that was initially placed on
+ * a condition queue, is now waiting to reacquire on sync queue.
+ * @param node the node
+ * @return true if is reacquiring
+ */
+final boolean isOnSyncQueue(Node node) {
+  	// 节点为CONDITION等待状态 或 节点无前驱
+    if (node.waitStatus == Node.CONDITION || node.prev == null)
+        return false;
+  	// 节点无后继
+    if (node.next != null) // If has successor, it must be on queue
+        return true;
+    /*
+     * node.prev can be non-null, but not yet on queue because
+     * the CAS to place it on queue can fail. So we have to
+     * traverse from tail to make sure it actually made it.  It
+     * will always be near the tail in calls to this method, and
+     * unless the CAS failed (which is unlikely), it will be
+     * there, so we hardly ever traverse much.
+     */
+    return findNodeFromTail(node);
+}
+```
+
+在同步队列中，从后向前找节点node
+
+```java
+/**
+ * Returns true if node is on sync queue by searching backwards from tail.
+ * Called only when needed by isOnSyncQueue.
+ * @return true if present
+ */
+private boolean findNodeFromTail(Node node) {
+    Node t = tail;
+  	// 从尾向前找node节点
+    for (;;) {
+        if (t == node)
+            return true;
+        if (t == null)
+            return false;
+        t = t.prev;
+    }
+}
+```
+
+#### signal
+
+- 唤醒等待队列中等待时间最长的节点
+- 当前线程必须获取了锁
+
+```java
+  /**
+   * Moves the longest-waiting thread, if one exists, from the
+   * wait queue for this condition to the wait queue for the
+   * owning lock.
+   *
+   * @throws IllegalMonitorStateException if {@link #isHeldExclusively}
+   *         returns {@code false}
+   */
+  public final void signal() {
+    	// 判断当前线程是否获取了锁
+      if (!isHeldExclusively())
+          throw new IllegalMonitorStateException();
+      Node first = firstWaiter;
+      if (first != null)
+          doSignal(first);
+  }
+```
+
+从等待队列中移除first节点，并确定等待队列中新的firstWaiter
+
+```java
+/**
+ * Removes and transfers nodes until hit non-cancelled one or
+ * null. Split out from signal in part to encourage compilers
+ * to inline the case of no waiters.
+ * @param first (non-null) the first node on condition queue
+ */
+private void doSignal(Node first) {
+    do {
+      	// 新的firstWaiter
+        if ( (firstWaiter = first.nextWaiter) == null)
+            lastWaiter = null;
+      	// 移除原有的关联
+        first.nextWaiter = null;
+      // 移除已取消的节点
+    } while (!transferForSignal(first) &&
+             (first = firstWaiter) != null);
+}
+```
+
+将节点从等待队列移到同步队列
+
+```java
+/**
+ * Transfers a node from a condition queue onto sync queue.
+ * Returns true if successful.
+ * @param node the node
+ * @return true if successfully transferred (else the node was
+ * cancelled before signal)
+ */
+final boolean transferForSignal(Node node) {
+    /*
+     * If cannot change waitStatus, the node has been cancelled.
+     */
+  	// 修改等待状态值（修改失败，则已移除）
+    if (!compareAndSetWaitStatus(node, Node.CONDITION, 0))
+        return false;
+
+    /*
+     * Splice onto queue and try to set waitStatus of predecessor to
+     * indicate that thread is (probably) waiting. If cancelled or
+     * attempt to set waitStatus fails, wake up to resync (in which
+     * case the waitStatus can be transiently and harmlessly wrong).
+     */
+  	// cas入队（将node节点加到同步队列）
+    Node p = enq(node);
+    int ws = p.waitStatus;
+    if (ws > 0 || !compareAndSetWaitStatus(p, ws, Node.SIGNAL))
+      	// 唤醒该节点线程
+        LockSupport.unpark(node.thread);
+    return true;
 }
 ```
 
